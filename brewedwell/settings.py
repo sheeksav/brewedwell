@@ -59,7 +59,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'brewedwell_local',
-        'USER': 'root',
+        'USER': 'andrewsheeks',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
