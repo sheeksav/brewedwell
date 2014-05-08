@@ -7,3 +7,6 @@ class Brewery(models.Model):
 	city = models.CharField(max_length=300)
 	is_active = models.BooleanField(default=True)
 
+	class Meta:
+		verbose_name_plural = "Breweries"
+
