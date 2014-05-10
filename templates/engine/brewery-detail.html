@@ -10,6 +10,13 @@
 
 		<p>Location: {{ brewery.city }}</p>
 
+		<ul class="list-group">
+		{% for beer in beer_list %}
+		<li class="list-group-item">{{ beer.name }}</li>
+		{% endfor %}
+		</ul>
+
+
 		
 
 	</div>

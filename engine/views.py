@@ -44,6 +44,7 @@ class BreweryDetailView(TemplateView):
 	def get_context_data(self, **kwargs):
 
 		return {
-			'brewery': kwargs.get('brewery')
+			'brewery': kwargs.get('brewery'),
+			'beer_list': Beer.objects.filter(brewery=kwargs.get('brewery')),
 		}
 
