@@ -10,5 +10,4 @@ class Brewery(models.Model):
 	class Meta:
 		verbose_name_plural = "Breweries"
 
-class Beer(models.Model):
 	
