@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from engine.models import Brewery, Beer
 
@@ -25,3 +25,25 @@ class BeerListView(TemplateView):
 		return {
 			'beer_list': beer_list
 		}
+
+class BreweryDetailView(TemplateView):
+	template_name = 'engine/brewery-detail.html'
+
+	def dispatch(self, request, *args, **kwargs):
+
+		try:
+			brewery = Brewery.objects.get(pk=kwargs.get('pk'))
+
+		except Brewery.DoesNotExist:
+			return redirect('brewery-list')
+
+		kwargs['brewery'] = brewery
+
+		return super(BreweryDetailView, self).dispatch(request, *args, **kwargs)
+
+	def get_context_data(self, **kwargs):
+
+		return {
+			'brewery': kwargs.get('brewery')
+		}
+

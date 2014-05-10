@@ -10,7 +10,7 @@
 
 		<ul class="list-group">
 			{% for brewery in brewery_list %}
-			<li class="list-group-item">{{ brewery.name }}</li>
+			<li class="list-group-item"><a href="{% url 'brewery-detail' brewery.id %}">{{ brewery.name }}</a></li>
 			{% endfor %}
 		</ul>
 
