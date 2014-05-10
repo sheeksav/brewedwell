@@ -48,3 +48,25 @@ class BreweryDetailView(TemplateView):
 			'beer_list': Beer.objects.filter(brewery=kwargs.get('brewery')),
 		}
 
+
+class BeerDetailView(TemplateView):
+	template_name = 'engine/beer-detail.html'
+
+	def dispatch(self, request, *args, **kwargs):
+
+		try:
+			beer = Beer.objects.get(pk=kwargs.get('pk'))
+
+		except Beer.DoesNotExist:
+			return redirect('beer-list')
+
+		kwargs['beer'] = beer
+
+		return super(BeerDetailView, self).dispatch(request, *args, **kwargs)
+
+	def get_context_data(self, **kwargs):
+
+		return {
+			'beer': kwargs.get('beer')
+		}
+
