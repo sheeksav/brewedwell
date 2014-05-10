@@ -13,4 +13,11 @@ class Brewery(models.Model):
 	def __unicode__(self):
 		return self.name
 
+
+class Beer(models.Model):
+	brewery = models.ForeignKey(Brewery)
+	name = models.CharField(max_length=300)
+
+
+
 	
