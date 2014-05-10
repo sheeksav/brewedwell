@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+	<div class="content-wrapper">
+
+		<h1>Breweries</h1>
+
+		<ul class="list-group">
+			{% for brewery in brewery_list %}
+			<li class="list-group-item">{{ brewery.name }}</li>
+			{% endfor %}
+		</ul>
+
+	</div>
+
+</div> <!--/container-->
+
+
+{% endblock %}
