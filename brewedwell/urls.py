@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from engine.views import HomeView, BreweryListView, BeerListView, BreweryDetailView, BeerDetailView
+from engine.views import HomeView, BreweryListView, BeerListView, BreweryDetailView, BeerDetailView, StyleListView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^beers/$', BeerListView.as_view(), name='beer-list'),
     url(r'^breweries/(?P<pk>\d+)/$', BreweryDetailView.as_view(), name='brewery-detail'),
     url(r'^beers/(?P<pk>\d+)/$', BeerDetailView.as_view(), name='beer-detail'),
+    url(r'^styles/$', StyleListView.as_view(), name='style-list'),
 )

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from engine.models import Brewery, Beer
+from engine.models import Brewery, Beer, Style
 
 # Create your views here.
 
@@ -68,5 +68,15 @@ class BeerDetailView(TemplateView):
 
 		return {
 			'beer': kwargs.get('beer')
+		}
+
+
+class StyleListView(TemplateView):
+	template_name = 'engine/style-list.html'
+
+	def get_context_data(self, **kwargs):
+		style_list = Style.objects.all()
+		return {
+			'style_list': style_list
 		}
 
