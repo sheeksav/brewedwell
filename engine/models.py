@@ -27,9 +27,9 @@ class Beer(models.Model):
 	name = models.CharField(max_length=300)
 	style = models.ForeignKey(Style, null=True)
 	description = models.CharField(max_length=2000, default="No description provided.")
-	abv = models.IntegerField(null=True)
-	ibu = models.IntegerField(null=True)
-	srm = models.IntegerField(null=True)
+	abv = models.FloatField(null=True)
+	ibu = models.FloatField(null=True)
+	srm = models.FloatField(null=True)
 
 	def __unicode__(self):
 		return self.name
