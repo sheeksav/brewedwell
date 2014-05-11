@@ -99,8 +99,9 @@ class StyleDetailView(TemplateView):
 	def get_context_data(self, **kwargs):
 
 		return {
-			'style': kwargs.get('style')
+			'style': kwargs.get('style'),
+			'beer_list': Beer.objects.filter(style=kwargs.get('style')),
 		}
 
 
-		
+

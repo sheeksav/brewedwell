@@ -9,6 +9,12 @@
 		<h1>{{ style.name }}</h1>
 		<p>{{ style.description }}</p>
 
+		<ul class="list-group">
+			{% for beer in beer_list %}
+			<li class="list-group-item"><a href="{% url 'beer-detail' beer.id %}">{{ beer.name }}</a></li>
+			{% endfor %}
+		</ul>
+
 	</div>
 
 </div> <!--/container-->
