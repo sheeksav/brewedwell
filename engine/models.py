@@ -14,13 +14,17 @@ class Brewery(models.Model):
 		return self.name
 
 
+class Style(models.Model):
+	name = models.CharField(max_length=300)
+
+
 class Beer(models.Model):
 	brewery = models.ForeignKey(Brewery)
 	name = models.CharField(max_length=300)
+	style = models.ForeignKey(Style, null=True)
 
 	def __unicode__(self):
 		return self.name
 
 
 
-	
