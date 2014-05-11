@@ -16,6 +16,7 @@ class Brewery(models.Model):
 
 class Style(models.Model):
 	name = models.CharField(max_length=300)
+	description = models.CharField(max_length=2000, default="No description provided.")
 
 	def __unicode__(self):
 		return self.name
