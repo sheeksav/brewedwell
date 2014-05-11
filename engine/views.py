@@ -80,3 +80,27 @@ class StyleListView(TemplateView):
 			'style_list': style_list
 		}
 
+
+class StyleDetailView(TemplateView):
+	template_name = 'engine/style-detail.html'
+
+	def dispatch(self, request, *args, **kwargs):
+
+		try:
+			style = Style.objects.get(pk=kwargs.get('pk'))
+
+		except Style.DoesNotExist:
+			return redirect('style-list')
+
+		kwargs['style'] = style
+
+		return super(StyleDetailView, self).dispatch(request, *args, **kwargs)
+
+	def get_context_data(self, **kwargs):
+
+		return {
+			'style': kwargs.get('style')
+		}
+
+
+		

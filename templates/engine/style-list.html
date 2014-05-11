@@ -10,7 +10,7 @@
 
 		<ul class="list-group">
 			{% for style in style_list %}
-			<li class="list-group-item"><a href="">{{ style.name }}</a></li>
+			<li class="list-group-item"><a href="{% url 'style-detail' style.id %}">{{ style.name }}</a></li>
 			{% endfor %}
 		</ul>
 
