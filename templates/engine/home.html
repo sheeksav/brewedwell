@@ -10,7 +10,17 @@
 		
 		<p class="lead">Brewed Well is a recommendation engine that helps you discover new craft beers based on your personal tastes and preferences.</p>
 
+		{% if user.is_authenticated %}
+
+		<p><a class="btn btn-primary" href="{% url 'logout' %}">Logout</a></p>
+
+		{% else %}
+
 		<p><a class="btn btn-primary" href="{% url 'login' %}">Login</a></p>
+
+		{% endif %}
+
+
 
 
 	</div> <!--/content-wrapper-->
