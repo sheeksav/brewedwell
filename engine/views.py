@@ -10,15 +10,6 @@ from .forms import LoginForm
 
 # Create your views here.
 
-"""
-class ProtectedView(View):
-
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):
-
-        return super(ProtectedView, self).dispatch(request, *args, **kwargs)
-"""
-
 
 class HomeView(TemplateView):
 	template_name = 'engine/home.html'
@@ -63,6 +54,11 @@ class LogoutView(View):
 class BreweryListView(TemplateView):
 	template_name = 'engine/brewery-list.html'
 
+	@method_decorator(login_required)
+	def dispatch(self, request, *args, **kwargs):
+
+		return super(BreweryListView, self).dispatch(request, *args, **kwargs)
+
 	def get_context_data(self, **kwargs):
 		brewery_list = Brewery.objects.all()
 		return {
@@ -73,15 +69,22 @@ class BreweryListView(TemplateView):
 class BeerListView(TemplateView):
 	template_name = 'engine/beer-list.html'
 
+	@method_decorator(login_required)
+	def dispatch(self, request, *args, **kwargs):
+
+		return super(BeerListView, self).dispatch(request, *args, **kwargs)
+
 	def get_context_data(self, **kwargs):
 		beer_list = Beer.objects.all()
 		return {
 			'beer_list': beer_list
 		}
 
+
 class BreweryDetailView(TemplateView):
 	template_name = 'engine/brewery-detail.html'
 
+	@method_decorator(login_required)
 	def dispatch(self, request, *args, **kwargs):
 
 		try:
@@ -105,6 +108,7 @@ class BreweryDetailView(TemplateView):
 class BeerDetailView(TemplateView):
 	template_name = 'engine/beer-detail.html'
 
+	@method_decorator(login_required)
 	def dispatch(self, request, *args, **kwargs):
 
 		try:
@@ -133,7 +137,6 @@ class StyleListView(TemplateView):
 
 		return super(StyleListView, self).dispatch(request, *args, **kwargs)
 
-
 	def get_context_data(self, **kwargs):
 		
 		style_list = Style.objects.all()
@@ -146,6 +149,7 @@ class StyleListView(TemplateView):
 class StyleDetailView(TemplateView):
 	template_name = 'engine/style-detail.html'
 
+	@method_decorator(login_required)
 	def dispatch(self, request, *args, **kwargs):
 
 		try:
