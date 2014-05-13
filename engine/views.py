@@ -3,10 +3,22 @@ from django.views.generic import TemplateView, FormView, View
 from engine.models import Brewery, Beer, Style
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 from .forms import LoginForm
 
 # Create your views here.
+
+"""
+class ProtectedView(View):
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+
+        return super(ProtectedView, self).dispatch(request, *args, **kwargs)
+"""
+
 
 class HomeView(TemplateView):
 	template_name = 'engine/home.html'
@@ -18,11 +30,14 @@ class LoginView(FormView):
 	success_url = ''
 
 	def get_context_data(self, **kwargs):
+		
 		context = super(LoginView, self).get_context_data(**kwargs)
 		context['next'] = self.request.GET.get('next')
+		
 		return context
 
 	def form_valid(self, form):
+
 		username = User.objects.get(email=form.cleaned_data.get('email')).username
 		user = authenticate(username=username, password=form.cleaned_data.get('password'))
 
@@ -30,7 +45,7 @@ class LoginView(FormView):
 			login(self.request, user)
 
 		if 'next' in self.request.GET:
-			self.success_url = self.request.GET.next('next')
+			self.success_url = self.request.GET.get('next')
 		else:
 			self.success_url = '/styles/'
 
@@ -109,14 +124,23 @@ class BeerDetailView(TemplateView):
 		}
 
 
+
 class StyleListView(TemplateView):
 	template_name = 'engine/style-list.html'
 
+	@method_decorator(login_required)
+	def dispatch(self, request, *args, **kwargs):
+
+		return super(StyleListView, self).dispatch(request, *args, **kwargs)
+
+
 	def get_context_data(self, **kwargs):
+		
 		style_list = Style.objects.all()
 		return {
 			'style_list': style_list
 		}
+
 
 
 class StyleDetailView(TemplateView):
