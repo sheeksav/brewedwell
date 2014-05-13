@@ -41,6 +41,13 @@
             <li><a href="{% url 'beer-list' %}">Beers</a></li>
             <li><a href="{% url 'style-list' %}">Styles</a></li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
