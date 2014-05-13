@@ -13,4 +13,3 @@ class LoginForm(forms.Form):
 
 		return email
 
-

@@ -6,3 +6,10 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+ul.errorlist {
+	list-style: none;
+	color: red;
+	padding: 0;
+	margin: 0;
+}
