@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from engine.views import HomeView, BreweryListView, BeerListView, BreweryDetailView, BeerDetailView, StyleListView, \
-StyleDetailView
+StyleDetailView, LoginView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -12,6 +12,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^$', HomeView.as_view(), name='home'),
     url(r'^breweries/$', BreweryListView.as_view(), name='brewery-list'),
     url(r'^beers/$', BeerListView.as_view(), name='beer-list'),
