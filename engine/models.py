@@ -37,13 +37,10 @@ class Beer(models.Model):
 
 
 class History(models.Model):
-	LIKED = 'LI'
-	DISLIKED = 'DL'
-	SAVED = 'SA'
 	HISTORY_CHOICES = (
-		(LIKED, 'Liked'),
-		(DISLIKED, 'Disliked'),
-		(SAVED, 'Saved'),
+		('LI', 'Liked'),
+		('DL', 'Disliked'),
+		('SA', 'Saved'),
 	)
 	choice = models.CharField(max_length=2, choices=HISTORY_CHOICES)
 	beer = models.ForeignKey(Beer)
