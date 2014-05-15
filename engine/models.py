@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -33,6 +34,23 @@ class Beer(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
+
+class History(models.Model):
+	LIKED = 'LI'
+	DISLIKED = 'DL'
+	SAVED = 'SA'
+	HISTORY_CHOICES = (
+		(LIKED, 'Liked'),
+		(DISLIKED, 'Disliked'),
+		(SAVED, 'Saved'),
+	)
+	choice = models.CharField(max_length=2, choices=HISTORY_CHOICES)
+	beer = models.ForeignKey(Beer)
+	user = models.ForeignKey(User)
+	date = models.DateTimeField(auto_now=True)
+
+
 
 
 
