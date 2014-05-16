@@ -13,3 +13,11 @@ class LoginForm(forms.Form):
 
 		return email
 
+
+class SignupForm(forms.Form):
+	email = forms.EmailField(required=True, max_length=200, widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control', 'type': 'email'}))
+	password = forms.CharField(required=True, max_length=200, widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'class': 'form-control'}))
+	first_name = forms.CharField(required=True, max_length=100, widget=forms.PasswordInput(attrs={'placeholder': 'First Name', 'class': 'form-control'}))
+	last_name = forms.CharField(required=True, max_length=100, widget=forms.PasswordInput(attrs={'placeholder': 'Last Name', 'class': 'form-control'}))
+		
+

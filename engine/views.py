@@ -6,13 +6,39 @@ from django.contrib.auth.models import User
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
-from .forms import LoginForm
+from .forms import LoginForm, SignupForm
 
 # Create your views here.
 
 
 class HomeView(TemplateView):
 	template_name = 'engine/home.html'
+
+
+class SignupView(FormView):
+	form_class = SignupForm
+	template_name = 'signup.html'
+	success_url = ''
+
+	def form_valid(self, form):
+
+		# Get data from form
+		email = form.cleaned_data.get('email').lower()
+		username = email[:30] # Limit to 30 chars
+		first_name = form.cleaned_data.get('first_name')
+		last_name = form.cleaned_data.get('last_name')
+		password = form.cleaned_data.get('password')
+
+		# Create a new user object
+		user = User.objects.create_user(username=username, email=email, password= password, first_name=first_name, last_name=last_name)
+
+		# Authenticate the user
+		user = authenticate(username=username, password=password)
+
+		# Log the user in
+		login(self.request, user)
+
+		return super(SignupView, self).form_valid(form)
 
 
 class LoginView(FormView):

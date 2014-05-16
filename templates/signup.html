@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+	<div class="content-wrapper">
+
+		<form method="post" action="" role="form">
+
+			{% csrf_token %}
+
+			<div class="form-group">
+
+				<label for="id_first_name">First Name</label>
+				{{ form.first_name }}
+				{{ form.first_name.errors }}
+
+				<label for="id_last_name">First Name</label>
+				{{ form.last_name }}
+				{{ form.last_name.errors }}
+
+				<label for="id_email">Email</label>
+				{{ form.email }}
+				{{ form.email.errors }}
+				
+				<label for="id_password">Password</label>
+				{{ form.password }}
+				{{ form.password.errors }}
+
+			</div>
+
+			<button type="submit" class="btn btn-info btn-block">Log in</button>
+
+		</form>
+
+	</div> <!--/content-wrapper-->
+</div> <!--/container-->
+
+{% endblock %}
