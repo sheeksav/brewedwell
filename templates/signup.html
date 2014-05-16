@@ -6,6 +6,8 @@
 <div class="container">
 	<div class="content-wrapper">
 
+		<h1>Sign Up</h1>
+
 		<form method="post" action="" role="form">
 
 			{% csrf_token %}
@@ -33,6 +35,8 @@
 			<button type="submit" class="btn btn-info btn-block">Log in</button>
 
 		</form>
+
+		<p>Already have an account? <a href="{% url 'login' %}">Click here</a> to login.</p>
 
 	</div> <!--/content-wrapper-->
 </div> <!--/container-->
