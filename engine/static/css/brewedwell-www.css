@@ -13,3 +13,10 @@ ul.errorlist {
 	padding: 0;
 	margin: 0;
 }
+
+li.greeting {
+	line-height: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #999;
+}
