@@ -8,11 +8,15 @@
 
 		<h1>Breweries</h1>
 
+		{% if brewery_list %}
 		<ul class="list-group">
 			{% for brewery in brewery_list %}
-			<li class="list-group-item"><a href="{% url 'brewery-detail' brewery.id %}">{{ brewery.name }}</a></li>
+				<li class="list-group-item"><a href="{% url 'brewery-detail' brewery.id %}">{{ brewery.name }}</a></li>
 			{% endfor %}
 		</ul>
+		{% else %}
+			<p>There are no breweries to display at this time. Please check back later.</p>
+		{% endif %}
 
 	</div>
 

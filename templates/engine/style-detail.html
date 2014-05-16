@@ -9,11 +9,15 @@
 		<h1>{{ style.name }}</h1>
 		<p>{{ style.description }}</p>
 
+		{% if beer_list %}
 		<ul class="list-group">
 			{% for beer in beer_list %}
-			<li class="list-group-item"><a href="{% url 'beer-detail' beer.id %}">{{ beer.name }}</a></li>
+				<li class="list-group-item"><a href="{% url 'beer-detail' beer.id %}">{{ beer.name }}</a></li>
 			{% endfor %}
 		</ul>
+		{% else %}
+			<p>There are no beers to display at this time. Please check back later.</p>
+		{% endif %}
 
 	</div>
 

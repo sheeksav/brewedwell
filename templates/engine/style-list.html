@@ -8,11 +8,15 @@
 
 		<h1>Styles</h1>
 
+		{% if style_list %}
 		<ul class="list-group">
 			{% for style in style_list %}
-			<li class="list-group-item"><a href="{% url 'style-detail' style.id %}">{{ style.name }}</a></li>
+				<li class="list-group-item"><a href="{% url 'style-detail' style.id %}">{{ style.name }}</a></li>
 			{% endfor %}
 		</ul>
+		{% else %}
+			<p>There are no styles to display at this time. Please check back later.</p>
+		{% endif %}
 
 	</div>
 
