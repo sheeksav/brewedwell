@@ -18,7 +18,7 @@ class HomeView(TemplateView):
 class SignupView(FormView):
 	form_class = SignupForm
 	template_name = 'signup.html'
-	success_url = ''
+	success_url = '/styles/'
 
 	def form_valid(self, form):
 
