@@ -9,11 +9,22 @@
 		<h1>{{ beer.name }}</h1>
 		<p>{{ beer.brewery }}</p>
 
-		{% if beer.details %}
-			<p></p>
-		{% else %}
-			<p>There are no beer details to display.</p>
+	
+		<p>{{ beer.description }}</p>
+		
+		{% if beer.abv %}
+		<p>ABV: {{ beer.abv }}</p>
 		{% endif %}
+
+		{% if beer.ibu %}
+		<p>IBU: {{ beer.ibu }}</p>
+		{% endif %}
+
+
+		{% if beer.srm %}
+		<p>SRM: {{ beer.srm }}</p>
+		{% endif %}
+		
 
 	</div>
 
