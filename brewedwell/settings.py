@@ -89,3 +89,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
+
+
+# Password strength
+PASSWORD_MIN_LENGTH = 8
+PASSWORD_COMPLEXITY = {
+    'UPPER': 1,
+    'LOWER': 1,
+    'PUNCTUATION': 1,
+}
