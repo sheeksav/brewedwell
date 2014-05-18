@@ -43,7 +43,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
-            <li class="hidden-xs hidden-sm" class="greeting">Hello, {{ user.first_name }}!</li>
+            <li class="greeting hidden-xs hidden-sm">Hello, {{ user.first_name }}!</li>
             <li class="hidden-xs hidden-sm"><a href="{% url 'logout' %}">Logout</a></li>
           {% else %}
             <li><a href="{% url 'login' %}">Login</a></li>
