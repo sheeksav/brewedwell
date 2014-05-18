@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="content-wrapper">
+
+
+        <h1>My Wishlist</h1>
+
+        {% if wish_list %}
+            <ul>
+                {% for beer in wish_list %}
+                <li>{{ beer.name }}</li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>You haven't saved any beers to your wishlist.</p>
+        {% endif %}
+
+
+    </div> <!--/content-wrapper-->
+
+</div> <!--/container-->
+
+
+{% endblock %}

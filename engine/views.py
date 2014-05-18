@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView, View
-from engine.models import Brewery, Beer, Style
+from engine.models import Brewery, Beer, Style, History
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.utils.decorators import method_decorator
@@ -193,6 +193,24 @@ class StyleDetailView(TemplateView):
             'style': kwargs.get('style'),
             'beer_list': Beer.objects.filter(style=kwargs.get('style')),
         }
+
+class WishListView(TemplateView):
+    template_name = 'engine/wishlist.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+
+        return super(WishListView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        wish_list = History.objects.filter(user=self.request.user)
+
+        return {
+            'wish_list': wish_list,
+        }
+
+
+
 
 
 
