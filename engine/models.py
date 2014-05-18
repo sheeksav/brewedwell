@@ -32,6 +32,9 @@ class Beer(models.Model):
     abv = models.FloatField(null=True, blank=True)
     ibu = models.FloatField(null=True, blank=True)
     srm = models.FloatField(null=True, blank=True)
+    likes = models.IntegerField(default=0)
+    saves = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.name

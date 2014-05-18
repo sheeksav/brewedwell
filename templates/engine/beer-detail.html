@@ -28,11 +28,15 @@
 
         <p>Have you tried this beer?</p>
 
-        <div class="btn-group">
-            <button type="button" class="btn btn-default">Like Beer</button>
-            <button type="button" class="btn btn-default">Add to Wishlist</button>
-            <button type="button" class="btn btn-default">Dislike Beer</button>
+        <div class="list-group">
+            <li class="list-group-item"><a href="">Like Beer</a></li>
+            <li class="list-group-item"><a href="">Save to  Wishlist</a></li>
+            <li class="list-group-item"><a href="">Dislike Beer</a></li>
         </div>
+
+        <p>{{ beer.likes }} people have liked this beer.</p>
+        <p>{{ beer.saves }} people have saved this beer to their wishlists.</p>
+        <p>{{ beer.dislikes }} people have disliked this beer.</p>
 		
 
 	</div>
