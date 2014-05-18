@@ -218,3 +218,27 @@ def LikeBeerView(request, pk):
         beer.save()
 
     return redirect('beer-detail', pk)
+
+
+def SaveBeerView(request, pk):
+    if pk:
+        beer = Beer.objects.get(id=pk)
+        count = beer.saves
+        count += 1
+        beer.saves = count
+        beer.save()
+
+    return redirect('beer-detail', pk)
+
+
+def DislikeBeerView(request, pk):
+    if pk:
+        beer = Beer.objects.get(id=pk)
+        count = beer.dislikes
+        count += 1
+        beer.dislikes = count
+        beer.save()
+
+    return redirect('beer-detail', pk)
+
+
