@@ -211,11 +211,11 @@ class WishListView(TemplateView):
 
 def LikeBeerView(request, pk):
     if pk:
-        beer = Beer.objects.get(id=pk)
-        count = beer.likes
+        b = Beer.objects.get(id=pk)
+        count = b.likes
         count += 1
-        beer.likes = count
-        beer.save()
+        b.likes = count
+        b.save()
 
     return redirect('beer-detail', pk)
 
