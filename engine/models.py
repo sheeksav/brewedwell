@@ -51,6 +51,12 @@ class History(models.Model):
     user = models.ForeignKey(User)
     date = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name_plural = "History Items"
+
+    def __unicode__(self):
+        return self.name
+
 
 
 
