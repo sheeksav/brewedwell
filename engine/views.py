@@ -212,9 +212,7 @@ class WishListView(TemplateView):
 def LikeBeerView(request, pk):
     if pk:
         b = Beer.objects.get(id=pk)
-        count = b.likes
-        count += 1
-        b.likes = count
+        b.likes += 1
         b.save()
 
     return redirect('beer-detail', pk)
@@ -222,22 +220,18 @@ def LikeBeerView(request, pk):
 
 def SaveBeerView(request, pk):
     if pk:
-        beer = Beer.objects.get(id=pk)
-        count = beer.saves
-        count += 1
-        beer.saves = count
-        beer.save()
+        b = Beer.objects.get(id=pk)
+        b.saves += 1
+        b.save()
 
     return redirect('beer-detail', pk)
 
 
 def DislikeBeerView(request, pk):
     if pk:
-        beer = Beer.objects.get(id=pk)
-        count = beer.dislikes
-        count += 1
-        beer.dislikes = count
-        beer.save()
+        b = Beer.objects.get(id=pk)
+        b.dislikes += 1
+        b.save()
 
     return redirect('beer-detail', pk)
 
