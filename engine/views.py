@@ -209,8 +209,12 @@ class WishListView(TemplateView):
             'wish_list': wish_list,
         }
 
+def LikeBeerView(request, pk):
+    if pk:
+        beer = Beer.objects.get(id=pk)
+        count = beer.likes
+        count += 1
+        beer.likes = count
+        beer.save()
 
-
-
-
-
+    return redirect('beer-detail', pk)

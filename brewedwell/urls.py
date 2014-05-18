@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from engine.views import HomeView, BreweryListView, BeerListView, BreweryDetailView, BeerDetailView, StyleListView, \
-StyleDetailView, LoginView, LogoutView, SignupView, WishListView
+StyleDetailView, LoginView, LogoutView, SignupView, WishListView, LikeBeerView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -24,4 +24,5 @@ urlpatterns = patterns('',
     url(r'^styles/$', StyleListView.as_view(), name='style-list'),
     url(r'^styles/(?P<pk>\d+)/$', StyleDetailView.as_view(), name='style-detail'),
     url(r'^wishlist/$', WishListView.as_view(), name='wishlist-view'),
+    url(r'^beers/like/(?P<pk>\d+)/$', LikeBeerView, name='like-beer'),
 )
