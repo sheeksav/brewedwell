@@ -54,8 +54,6 @@ class History(models.Model):
     class Meta:
         verbose_name_plural = "History Items"
 
-    def __unicode__(self):
-        return self.name
 
 
 

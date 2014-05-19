@@ -209,11 +209,16 @@ class WishListView(TemplateView):
             'wish_list': wish_list,
         }
 
+
+
 def LikeBeerView(request, pk):
     if pk:
         b = Beer.objects.get(id=pk)
         b.likes += 1
         b.save()
+        h = History.objects.create(choice='LI', beer=b, user=request.user)
+        h.save()
+    
 
     return redirect('beer-detail', pk)
 
