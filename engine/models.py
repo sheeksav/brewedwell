@@ -54,6 +54,9 @@ class History(models.Model):
     class Meta:
         verbose_name_plural = "History Items"
 
+    def __unicode__(self):
+        return u'%s %s %s' % (self.user.first_name, self.choice, self.beer.name)
+
 
 
 
