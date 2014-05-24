@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="content-wrapper">
+
+
+        <h1>My Liked Beers</h1>
+
+        {% if liked_beers_list %}
+            <ul class="list-group">
+                {% for item in liked_beers_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'brewery-detail' item.beer.brewery.id %}">{{ item.beer.brewery.name }}</a><br />
+                    <a href="{% url 'beer-detail' item.beer.id %}">{{ item.beer.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>You haven't saved any beers to your wishlist.</p>
+        {% endif %}
+
+
+    </div> <!--/content-wrapper-->
+
+</div> <!--/container-->
+
+
+{% endblock %}

@@ -210,6 +210,21 @@ class WishListView(TemplateView):
         }
 
 
+class LikedBeersListView(TemplateView):
+    template_name = 'engine/liked.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+
+        return super(LikedBeersListView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        liked_beers_list = History.objects.filter(user=self.request.user, choice='LI')
+
+        return {
+            'liked_beers_list': liked_beers_list,
+        }
+
 
 def LikeBeerView(request, pk):
     if pk:
@@ -239,6 +254,8 @@ def DislikeBeerView(request, pk):
         b = Beer.objects.get(id=pk)
         b.dislikes += 1
         b.save()
+        h = History.objects.create(choice="DL", beer=b, user=request.user)
+        h.save()
 
     return redirect('beer-detail', pk)
 
