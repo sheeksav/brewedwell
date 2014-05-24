@@ -58,6 +58,69 @@ class History(models.Model):
         return u'%s %s %s' % (self.user.first_name, self.choice, self.beer.name)
 
 
+class Flavor(models.Model):
+    FLAVOR_TAGS = (
+        ('0', 'Weak'),
+        ('1', 'Light'),
+        ('2', 'Moderate'),
+        ('3', 'Heavy'),
+        ('4', 'Strong'),
+    )
+    beer = models.ForeignKey(Beer)
+    acidity = models.IntegerField(choices=FLAVOR_TAGS)
+    alcohol = models.IntegerField(choices=FLAVOR_TAGS)
+    balance = models.IntegerField(choices=FLAVOR_TAGS)
+    biscuit = models.IntegerField(choices=FLAVOR_TAGS)
+    bitter = models.IntegerField(choices=FLAVOR_TAGS)
+    body = models.IntegerField(choices=FLAVOR_TAGS)
+    bread = models.IntegerField(choices=FLAVOR_TAGS)
+    burnt = models.IntegerField(choices=FLAVOR_TAGS)
+    butter = models.IntegerField(choices=FLAVOR_TAGS)
+    caramel = models.IntegerField(choices=FLAVOR_TAGS)
+    chocolate = models.IntegerField(choices=FLAVOR_TAGS)
+    citrus = models.IntegerField(choices=FLAVOR_TAGS)
+    clove = models.IntegerField(choices=FLAVOR_TAGS)
+    coconut = models.IntegerField(choices=FLAVOR_TAGS)
+    coffee = models.IntegerField(choices=FLAVOR_TAGS)
+    crisp = models.IntegerField(choices=FLAVOR_TAGS)
+    dark_fruit = models.IntegerField(choices=FLAVOR_TAGS)
+    dry = models.IntegerField(choices=FLAVOR_TAGS)
+    earthy = models.IntegerField(choices=FLAVOR_TAGS)
+    finish = models.IntegerField(choices=FLAVOR_TAGS)
+    fruit = models.IntegerField(choices=FLAVOR_TAGS)
+    graham_cracker = models.IntegerField(choices=FLAVOR_TAGS)
+    grass = models.IntegerField(choices=FLAVOR_TAGS)
+    herbal = models.IntegerField(choices=FLAVOR_TAGS)
+    hop = models.IntegerField(choices=FLAVOR_TAGS)
+    licorice = models.IntegerField(choices=FLAVOR_TAGS)
+    malt = models.IntegerField(choices=FLAVOR_TAGS)
+    nutty = models.IntegerField(choices=FLAVOR_TAGS)
+    oak = models.IntegerField(choices=FLAVOR_TAGS)
+    pine = models.IntegerField(choices=FLAVOR_TAGS)
+    refreshing = models.IntegerField(choices=FLAVOR_TAGS)
+    resin = models.IntegerField(choices=FLAVOR_TAGS)
+    richness = models.IntegerField(choices=FLAVOR_TAGS)
+    roast = models.IntegerField(choices=FLAVOR_TAGS)
+    robust = models.IntegerField(choices=FLAVOR_TAGS)
+    salt = models.IntegerField(choices=FLAVOR_TAGS)
+    silk = models.IntegerField(choices=FLAVOR_TAGS)
+    smoke = models.IntegerField(choices=FLAVOR_TAGS)
+    sour = models.IntegerField(choices=FLAVOR_TAGS)
+    spice = models.IntegerField(choices=FLAVOR_TAGS)
+    sweet = models.IntegerField(choices=FLAVOR_TAGS)
+    syrup = models.IntegerField(choices=FLAVOR_TAGS)
+    tart = models.IntegerField(choices=FLAVOR_TAGS)
+    toast = models.IntegerField(choices=FLAVOR_TAGS)
+    toffee = models.IntegerField(choices=FLAVOR_TAGS)
+    vanilla = models.IntegerField(choices=FLAVOR_TAGS)
+    vinous = models.IntegerField(choices=FLAVOR_TAGS)
+    warmth = models.IntegerField(choices=FLAVOR_TAGS)
+    wheat = models.IntegerField(choices=FLAVOR_TAGS)
+    yeast = models.IntegerField(choices=FLAVOR_TAGS)
+
+
+
+
 
 
 
