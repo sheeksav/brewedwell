@@ -10,9 +10,12 @@
         <h1>My Wishlist</h1>
 
         {% if wish_list %}
-            <ul>
-                {% for beer in wish_list %}
-                <li>{{ beer.name }}</li>
+            <ul class="list-group">
+                {% for item in wish_list %}
+                <li class="list-group-item">
+                    <a href="{% url 'brewery-detail' item.beer.brewery.id %}">{{ item.beer.brewery.name }}</a><br />
+                    <a href="{% url 'beer-detail' item.beer.id %}">{{ item.beer.name }}</a>
+                </li>
                 {% endfor %}
             </ul>
 

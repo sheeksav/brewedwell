@@ -203,7 +203,7 @@ class WishListView(TemplateView):
         return super(WishListView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        wish_list = History.objects.filter(user=self.request.user)
+        wish_list = History.objects.filter(user=self.request.user, choice='SA')
 
         return {
             'wish_list': wish_list,
@@ -228,6 +228,8 @@ def SaveBeerView(request, pk):
         b = Beer.objects.get(id=pk)
         b.saves += 1
         b.save()
+        h = History.objects.create(choice='SA', beer=b, user=request.user)
+        h.save()
 
     return redirect('beer-detail', pk)
 
