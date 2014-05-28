@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView, View
-from engine.models import Brewery, Beer, Style, History
+from engine.models import Brewery, Beer, Style, History, Flavor
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.utils.decorators import method_decorator
@@ -143,14 +143,18 @@ class BeerDetailView(TemplateView):
         except Beer.DoesNotExist:
             return redirect('beer-list')
 
+        flavor_profile = Flavor.objects.filter(beer=kwargs.get('pk'))
+
         kwargs['beer'] = beer
+        kwargs['flavor_profile'] = flavor_profile
 
         return super(BeerDetailView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
 
         return {
-            'beer': kwargs.get('beer')
+            'beer': kwargs.get('beer'),
+            'flavor_profile': kwargs.get('flavor_profile'),
         }
 
 

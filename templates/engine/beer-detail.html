@@ -26,7 +26,7 @@
 		{% endif %}
 
 
-        <p>Have you tried this beer?</p>
+        <h3>Have you tried this beer?</h3>
 
         <div class="list-group">
             <li class="list-group-item"><a href="{% url 'like-beer' beer.id %}">Like Beer</a></li>
@@ -37,6 +37,64 @@
         <p>{{ beer.likes }} people have liked this beer.</p>
         <p>{{ beer.saves }} people have saved this beer to their wishlists.</p>
         <p>{{ beer.dislikes }} people have disliked this beer.</p>
+        
+
+        <h3>Flavor Profile</h3>
+
+        <ul class="list-group">
+            {% for flavor in flavor_profile %}
+                <li class="list-group-item">Acidity: {{ flavor.acidity }}</li>
+                <li class="list-group-item">Alcohol: {{ flavor.alcohol }}</li>
+                <li class="list-group-item">Balance: {{ flavor.balance }}</li>
+                <li class="list-group-item">Biscuit: {{ flavor.biscuit }}</li>
+                <li class="list-group-item">Bitter: {{ flavor.bitter }}</li>
+                <li class="list-group-item">Body: {{ flavor.body }}</li>
+                <li class="list-group-item">Bread: {{ flavor.bread }}</li>
+                <li class="list-group-item">Burnt: {{ flavor.burnt }}</li>
+                <li class="list-group-item">Butter: {{ flavor.butter }}</li>
+                <li class="list-group-item">Caramel: {{ flavor.caramel }}</li>
+                <li class="list-group-item">Chocolate: {{ flavor.chocolate }}</li>
+                <li class="list-group-item">Citrus: {{ flavor.citrus }}</li>
+                <li class="list-group-item">Coconut: {{ flavor.coconut }}</li>
+                <li class="list-group-item">Coffee: {{ flavor.coffee }}</li>
+                <li class="list-group-item">Crisp: {{ flavor.crisp }}</li>
+                <li class="list-group-item">Dark Fruit: {{ flavor.dark_fruit }}</li>
+                <li class="list-group-item">Dry: {{ flavor.dry }}</li>
+                <li class="list-group-item">Earthy: {{ flavor.earthy }}</li>
+                <li class="list-group-item">Finish: {{ flavor.finish }}</li>
+                <li class="list-group-item">Fruit: {{ flavor.fruit }}</li>
+                <li class="list-group-item">Graham Cracker: {{ flavor.graham_cracker }}</li>
+                <li class="list-group-item">Grass: {{ flavor.grass }}</li>
+                <li class="list-group-item">Herbal: {{ flavor.herbal }}</li>
+                <li class="list-group-item">Hop: {{ flavor.hop }}</li>
+                <li class="list-group-item">Licorice: {{ flavor.licorice }}</li>
+                <li class="list-group-item">Malt: {{ flavor.malt }}</li>
+                <li class="list-group-item">Nutty: {{ flavor.nutty }}</li>
+                <li class="list-group-item">Oak: {{ flavor.oak }}</li>
+                <li class="list-group-item">Pine: {{ flavor.pine }}</li>
+                <li class="list-group-item">Refreshing: {{ flavor.refreshing }}</li>
+                <li class="list-group-item">Resin: {{ flavor.resin }}</li>
+                <li class="list-group-item">Richness: {{ flavor.richness }}</li>
+                <li class="list-group-item">Roast: {{ flavor.roast }}</li>
+                <li class="list-group-item">Robust: {{ flavor.robust }}</li>
+                <li class="list-group-item">Salt: {{ flavor.salt }}</li>
+                <li class="list-group-item">Silk: {{ flavor.silk }}</li>
+                <li class="list-group-item">Smoke: {{ flavor.smoke }}</li>
+                <li class="list-group-item">Sour: {{ flavor.sour }}</li>
+                <li class="list-group-item">Spice: {{ flavor.spice }}</li>
+                <li class="list-group-item">Sweet: {{ flavor.sweet }}</li>
+                <li class="list-group-item">Syrup: {{ flavor.syrup }}</li>
+                <li class="list-group-item">Tart: {{ flavor.tart }}</li>
+                <li class="list-group-item">Toast: {{ flavor.toast }}</li>
+                <li class="list-group-item">Toffee: {{ flavor.toffee }}</li>
+                <li class="list-group-item">Vanilla: {{ flavor.vanilla }}</li>
+                <li class="list-group-item">Vinous: {{ flavor.vinous }}</li>
+                <li class="list-group-item">Warmth: {{ flavor.warmth }}</li>
+                <li class="list-group-item">Wheat: {{ flavor.wheat }}</li>
+                <li class="list-group-item">Yeast: {{ flavor.yeast }}</li>
+            {% endfor %}
+        </ul>
+
 		
 
 	</div>
