@@ -15,6 +15,10 @@ class HomeView(TemplateView):
     template_name = 'engine/home.html'
 
 
+class DashboardView(TemplateView):
+    template_name = 'base_dashboard.html'
+
+
 class SignupView(FormView):
     form_class = SignupForm
     template_name = 'signup.html'
